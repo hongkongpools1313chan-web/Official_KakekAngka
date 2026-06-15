@@ -3,176 +3,182 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Kakek Angka</title>
 
 <style>
-  body{
-    margin:0;
-    font-family:Arial, sans-serif;
-    background:#0f0f0f;
-    color:white;
-  }
+body{
+  margin:0;
+  font-family:Arial;
+  color:white;
+  background:black;
+  overflow-x:hidden;
+}
 
-  /* NAVBAR */
-  .menu{
-    display:flex;
-    justify-content:center;
-    gap:10px;
-    background:#1c1c1c;
-    padding:12px;
-    position:sticky;
-    top:0;
-  }
+/* 🌈 ANIMATED BACKGROUND */
+.bg{
+  position:fixed;
+  width:100%;
+  height:100%;
+  background:linear-gradient(45deg,#ff00cc,#3333ff,#00ffcc,#ffcc00);
+  background-size:400% 400%;
+  animation:bgmove 10s infinite alternate;
+  filter:blur(50px);
+  z-index:-1;
+}
 
-  .menu button{
-    padding:10px 15px;
-    border:none;
-    border-radius:8px;
-    cursor:pointer;
-    background:#333;
-    color:white;
-    transition:0.3s;
-  }
+@keyframes bgmove{
+  0%{background-position:0% 50%;}
+  100%{background-position:100% 50%;}
+}
 
-  .menu button:hover{
-    background:#666;
-    transform:scale(1.05);
-  }
+/* MENU */
+.menu{
+  display:flex;
+  justify-content:center;
+  gap:8px;
+  padding:12px;
+  position:sticky;
+  top:0;
+  background:rgba(0,0,0,0.4);
+  backdrop-filter:blur(10px);
+}
 
-  /* PAGE */
-  .content{
-    display:none;
-    padding:20px;
-    animation:fade 0.4s ease-in-out;
-  }
+.menu button{
+  padding:10px 14px;
+  border:none;
+  border-radius:10px;
+  cursor:pointer;
+  background:rgba(255,255,255,0.1);
+  color:white;
+  transition:0.3s;
+}
 
-  @keyframes fade{
-    from{opacity:0; transform:translateY(10px);}
-    to{opacity:1; transform:translateY(0);}
-  }
+.menu button:hover{
+  background:cyan;
+  color:black;
+  transform:scale(1.1);
+}
 
-  /* HOME HERO */
-  .hero{
-    background:linear-gradient(135deg,#ff416c,#1c1c1c);
-    padding:30px;
-    border-radius:15px;
-    text-align:center;
-  }
+/* PAGE */
+.content{
+  display:none;
+  padding:20px;
+  animation:fade 0.4s ease;
+}
 
-  .cards{
-    display:flex;
-    flex-wrap:wrap;
-    gap:10px;
-    justify-content:center;
-    margin-top:20px;
-  }
+@keyframes fade{
+  from{opacity:0; transform:translateY(10px);}
+  to{opacity:1; transform:translateY(0);}
+}
 
-  .card{
-    background:#1f1f1f;
-    padding:15px;
-    border-radius:12px;
-    width:140px;
-    text-align:center;
-  }
+/* LOGO 3D */
+.logo{
+  font-size:42px;
+  font-weight:bold;
+  text-align:center;
+  text-shadow:
+  2px 2px 0 #00ffff,
+  4px 4px 0 #ff00ff,
+  6px 6px 15px black;
+  animation:float 2s infinite alternate;
+}
 
-  a{
-    color:#00c3ff;
-    text-decoration:none;
-    font-weight:bold;
-  }
+@keyframes float{
+  from{transform:translateY(0);}
+  to{transform:translateY(-10px);}
+}
 
-  button.linkbtn{
-    padding:10px 15px;
-    border:none;
-    border-radius:8px;
-    background:#00c3ff;
-    cursor:pointer;
-    color:black;
-    font-weight:bold;
-  }
+/* CARD */
+.card{
+  background:rgba(255,255,255,0.08);
+  padding:15px;
+  margin:10px 0;
+  border-radius:15px;
+  backdrop-filter:blur(10px);
+}
+
+a{
+  color:#00ffff;
+  font-weight:bold;
+  text-decoration:none;
+}
+
+button.linkbtn{
+  padding:10px 15px;
+  border:none;
+  border-radius:10px;
+  background:cyan;
+  cursor:pointer;
+  font-weight:bold;
+}
 </style>
 </head>
 
 <body>
 
+<div class="bg"></div>
+
 <!-- MENU -->
 <div class="menu">
-  <button onclick="showPage('home')">Home</button>
-  <button onclick="showPage('result')">Result</button>
-  <button onclick="showPage('cs')">CS</button>
+  <button onclick="show('home')">Home</button>
+  <button onclick="show('result')">Result</button>
+  <button onclick="show('info')">Info</button>
+  <button onclick="show('cs')">CS</button>
 </div>
 
 <!-- HOME -->
 <div id="home" class="content" style="display:block;">
 
-  <div class="hero">
-    <h1>🔥 KAKEK ANGKA</h1>
-    <p>Dashboard Info & Result Center</p>
+  <div class="logo">🔥 KAKEK ANGKA</div>
+
+  <div class="card">
+    <h3>🚀 Dashboard Premium</h3>
+    <p>Website modern dengan efek neon + animasi</p>
   </div>
 
-  <div class="cards">
-
-    <div class="card">
-      <h3>📊 Result</h3>
-      <p>Update harian</p>
-    </div>
-
-    <div class="card">
-      <h3>⚡ Fast</h3>
-      <p>Akses cepat</p>
-    </div>
-
-    <div class="card">
-      <h3>📩 CS</h3>
-      <p>Bantuan user</p>
-    </div>
-
-  </div>
-
-  <br>
-
-  <div style="text-align:center;">
-    <p>Selamat datang di dashboard Kakek Angka</p>
+  <div class="card">
+    <h3>⚡ Fitur</h3>
+    <p>- Tampilan Neon</p>
+    <p>- Menu Aplikasi</p>
+    <p>- Responsive HP</p>
   </div>
 
 </div>
 
 <!-- RESULT -->
 <div id="result" class="content">
-
-  <h2>Result</h2>
-
-  <p>
+  <div class="card">
+    <h2>📊 Result</h2>
     <a href="https://hongkongpools.com/" target="_blank">
       👉 Buka Result Website
     </a>
-  </p>
+  </div>
+</div>
 
+<!-- INFO -->
+<div id="info" class="content">
+  <div class="card">
+    <h2>ℹ️ Info</h2>
+    <p>Website ini sudah menggunakan desain modern neon UI.</p>
+  </div>
 </div>
 
 <!-- CS -->
 <div id="cs" class="content">
+  <div class="card">
+    <h2>📩 Hubungi CS</h2>
 
-  <h2>Hubungi CS</h2>
-
-  <p>
     <button class="linkbtn"
       onclick="window.location.href='mailto:hongkongpools1313chan@gmail.com'">
       Kirim Email CS
     </button>
-  </p>
-
+  </div>
 </div>
 
-<!-- SCRIPT -->
 <script>
-function showPage(page){
-  document.getElementById('home').style.display='none';
-  document.getElementById('result').style.display='none';
-  document.getElementById('cs').style.display='none';
-
-  document.getElementById(page).style.display='block';
+function show(id){
+  document.querySelectorAll('.content').forEach(e=>e.style.display='none');
+  document.getElementById(id).style.display='block';
 }
 </script>
 
