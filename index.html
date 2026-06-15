@@ -1,16 +1,180 @@
 <!DOCTYPE html>
-<html>
+<html lang="id">
 <head>
-  <title>Kakek Angka</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Kakek Angka</title>
+
+<style>
+  body{
+    margin:0;
+    font-family:Arial, sans-serif;
+    background:#0f0f0f;
+    color:white;
+  }
+
+  /* NAVBAR */
+  .menu{
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    background:#1c1c1c;
+    padding:12px;
+    position:sticky;
+    top:0;
+  }
+
+  .menu button{
+    padding:10px 15px;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    background:#333;
+    color:white;
+    transition:0.3s;
+  }
+
+  .menu button:hover{
+    background:#666;
+    transform:scale(1.05);
+  }
+
+  /* PAGE */
+  .content{
+    display:none;
+    padding:20px;
+    animation:fade 0.4s ease-in-out;
+  }
+
+  @keyframes fade{
+    from{opacity:0; transform:translateY(10px);}
+    to{opacity:1; transform:translateY(0);}
+  }
+
+  /* HOME HERO */
+  .hero{
+    background:linear-gradient(135deg,#ff416c,#1c1c1c);
+    padding:30px;
+    border-radius:15px;
+    text-align:center;
+  }
+
+  .cards{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    justify-content:center;
+    margin-top:20px;
+  }
+
+  .card{
+    background:#1f1f1f;
+    padding:15px;
+    border-radius:12px;
+    width:140px;
+    text-align:center;
+  }
+
+  a{
+    color:#00c3ff;
+    text-decoration:none;
+    font-weight:bold;
+  }
+
+  button.linkbtn{
+    padding:10px 15px;
+    border:none;
+    border-radius:8px;
+    background:#00c3ff;
+    cursor:pointer;
+    color:black;
+    font-weight:bold;
+  }
+</style>
 </head>
+
 <body>
 
-<h1>Web Kakek Angka</h1>
+<!-- MENU -->
+<div class="menu">
+  <button onclick="showPage('home')">Home</button>
+  <button onclick="showPage('result')">Result</button>
+  <button onclick="showPage('cs')">CS</button>
+</div>
 
-<!-- 🔗 LINK KE WEBSITE -->
-<a href="https://hongkongpools.com/" target="_blank">
-  Buka HongKong Pools
-</a>
+<!-- HOME -->
+<div id="home" class="content" style="display:block;">
+
+  <div class="hero">
+    <h1>🔥 KAKEK ANGKA</h1>
+    <p>Dashboard Info & Result Center</p>
+  </div>
+
+  <div class="cards">
+
+    <div class="card">
+      <h3>📊 Result</h3>
+      <p>Update harian</p>
+    </div>
+
+    <div class="card">
+      <h3>⚡ Fast</h3>
+      <p>Akses cepat</p>
+    </div>
+
+    <div class="card">
+      <h3>📩 CS</h3>
+      <p>Bantuan user</p>
+    </div>
+
+  </div>
+
+  <br>
+
+  <div style="text-align:center;">
+    <p>Selamat datang di dashboard Kakek Angka</p>
+  </div>
+
+</div>
+
+<!-- RESULT -->
+<div id="result" class="content">
+
+  <h2>Result</h2>
+
+  <p>
+    <a href="https://hongkongpools.com/" target="_blank">
+      👉 Buka Result Website
+    </a>
+  </p>
+
+</div>
+
+<!-- CS -->
+<div id="cs" class="content">
+
+  <h2>Hubungi CS</h2>
+
+  <p>
+    <button class="linkbtn"
+      onclick="window.location.href='mailto:hongkongpools1313chan@gmail.com'">
+      Kirim Email CS
+    </button>
+  </p>
+
+</div>
+
+<!-- SCRIPT -->
+<script>
+function showPage(page){
+  document.getElementById('home').style.display='none';
+  document.getElementById('result').style.display='none';
+  document.getElementById('cs').style.display='none';
+
+  document.getElementById(page).style.display='block';
+}
+</script>
 
 </body>
 </html>
